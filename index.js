@@ -3,10 +3,14 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/AddressBook", {
+mongoose.connect("mongodb://localhost:27017/AddressBookv2", {
    useNewUrlParser: true,
    useUnifiedTopology: true 
-});
+}).then(
+    () => {
+      console.log('Database is connected') },
+    err => { console.log('Can not connect to the database'+ err)}
+);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -23,6 +27,15 @@ const contactSchema = new mongoose.Schema({
 });
 
 const Contact = mongoose.model("Contact", contactSchema);
+
+// // log all contacts
+// Contact.find({}, (err, contacts) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(contacts);
+//     }
+// });
 
 //Default Route
 app.get("/", (req, res) => {
@@ -46,3 +59,19 @@ app.post("/new", (req, res) => {
 });
 
 app.listen(3000, () => console.log("AddressBook server started"));
+
+
+// Contact.create({
+//     name: "Hubert Gonzales",
+//     cell: "06378542745",
+//     email: "HubertGonzalez@outlook.com",
+//     street: "1639 Pickens Way",
+//     postcode: "75090",
+//     city: "Sherman"
+// }, (err, contacts) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(contacts);
+//     }
+// });
