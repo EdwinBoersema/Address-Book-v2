@@ -55,7 +55,9 @@ app.get("/new", (req, res) => {
 
 // Create Contact Post
 app.post("/new", (req, res) => {
+    // get the input from the "/new" form and create a new entry in the database
 
+    // redirect to "/"
 });
 
 app.listen(3000, () => console.log("AddressBook server started"));
