@@ -1,3 +1,63 @@
+:root {
+    --darkblue:#00396E;
+    --blueHighlight:#4091F9;
+    --colorWhite:#F5F9FF;
+    --colorBeige: #F1F1E6;
+}
+
+body {
+    background-color: var(--colorWhite);
+}
+
+.nav {
+    background: var(--darkblue);
+    border-radius: 4px;
+}
+
+#navContent {
+    display: inline-flex;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    color: var(--colorWhite);
+    border: var(--blueHighlight) 1px solid;
+    border-radius: 0.25rem;
+    padding-left: 0.3125rem ;
+    padding-right: 0.3125rem ;
+    margin: 1% 1%;
+    justify-self: flex-start;
+}
+
+div input, button.btn {
+    max-width: 40%;
+    margin: 1% 1%;
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.table {
+    display: table;
+    margin-top: 20px;
+}
+
+tr th {
+    background: var(--darkblue);
+    color: var(--colorWhite);
+    border: 2px solid var(--blueHighlight);
+}
+
+tr td {
+    background: var(--colorWhite);
+    color: var(--darkblue);
+    padding: 1px;
+    margin: 1px;
+    border: 2px solid var(--blueHighlight);
+}
+
 #copyright {
     font-size: 0.5em;
 }

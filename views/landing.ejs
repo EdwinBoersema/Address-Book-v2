@@ -1,8 +1,32 @@
 <% include partials/header %>
 
-
 <div class="container">
-    <h1>Landing Page</h1>
-</div>
+        <nav id="navBar" class="nav navbar-expand-md">
+            <div id="navContent" class="container">
+                <a class="navbar-brand " href="/">Address Book</a>
+                <span class="p-2 flex-grow-1"></span>
+                <input class="form-control" type="text" placeholder="...">
+                <button type="button" class="btn btn-outline-primary">Search</button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+            <table class="table table-responsive-md">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Tel. Number</th>
+                  <th scope="col" class="d-none d-md-table-cell">E-mail Address</th>
+                  <th scope="col">Address</th>
+                  <th scope="col" class="d-none d-md-table-cell">Zip Code</th>
+                  <th scope="col">City</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
 
 <% include partials/footer %>
