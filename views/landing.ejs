@@ -24,7 +24,16 @@
                 </tr>
               </thead>
               <tbody>
-                
+                <% contacts.forEach((contacts) => { %>
+                    <tr class="addressRow">
+                        <td> <%= contacts.name %></td>
+                        <td> <%= contacts.cell %></td>
+                        <td class="d-none d-md-table-cell"> <%= contacts.email %></td>
+                        <td> <%= contacts.street %></td>
+                        <td class="d-none d-md-table-cell"> <%= contacts.postcode %></td>
+                        <td> <%= contacts.city %></td>
+                    </tr>
+                <% }) %>
               </tbody>
             </table>
           </div>
