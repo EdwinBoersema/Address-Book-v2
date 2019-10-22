@@ -1,0 +1,25 @@
+{
+  "name": "address-book-v2",
+  "version": "1.0.0",
+  "description": "Address Book with added database functionality.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwinBoersema/Address-Book-v2.git"
+  },
+  "author": "Edwin Boersema",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdwinBoersema/Address-Book-v2/issues"
+  },
+  "homepage": "https://github.com/EdwinBoersema/Address-Book-v2#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.6"
+  }
+}
