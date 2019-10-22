@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const request = require("request");
 
 mongoose.connect("mongodb://localhost:27017/AddressBookv2", {
    useNewUrlParser: true,
@@ -58,6 +59,10 @@ app.post("/new", (req, res) => {
     // get the input from the "/new" form and create a new entry in the database
 
     // redirect to "/"
+});
+
+app.post("/random", (req, res) => {
+
 });
 
 app.listen(3000, () => console.log("AddressBook server started"));
