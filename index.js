@@ -44,3 +44,5 @@ app.get("/new", (req, res) => {
 app.post("/new", (req, res) => {
 
 });
+
+app.listen(3000, () => console.log("AddressBook server started"));
