@@ -61,6 +61,22 @@ app.get("/random", (req, res) => {
 })
 
 app.post("/random", (req, res) => {
-    request()
+    const count = req.body.count;
+    request('https://randomuser.me/api/?results=1?inc=name,location,email,phone', (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            const parsedData = JSON.parse(body);
+            console.log(parsedData);
+        } else if (error) {
+            console.log(error);
+        }
+    });
 });
 
+request('https://randomuser.me/api/?results=1?inc=name,location,email,phone', (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            const parsedData = JSON.parse(body);
+            console.log(parsedData);
+        } else if (error) {
+            console.log(error);
+        }
+    });
