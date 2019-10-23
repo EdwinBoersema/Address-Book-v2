@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
     });
 });
 
-// Create Contact Form
+// Render new.ejs on "/new"
 app.get("/new", (req, res) => {
     res.render("new");
 });
@@ -56,12 +56,11 @@ app.post("/new", (req, res) => {
 });
 
 //get random contact(s) added to the database
-
 app.get("/random", (req, res) => {
     res.render("random");
 })
 
 app.post("/random", (req, res) => {
-
+    request()
 });
 
