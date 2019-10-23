@@ -1,13 +1,5 @@
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const request = require("request");
-const mongo = require("./mongo");
 
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost:27017/AddressBookv2", {
    useNewUrlParser: true,
@@ -38,42 +30,6 @@ const Contact = mongoose.model("Contact", contactSchema);
 //         console.log(contacts);
 //     }
 // });
-
-//Default Route
-app.get("/", (req, res) => {
-    Contact.find({}, (err, allContacts) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.render("landing", {contacts: allContacts});
-        }
-    });
-});
-
-// Create Contact Form
-app.get("/new", (req, res) => {
-    res.render("new");
-});
-
-// Create Contact Post
-app.post("/new", (req, res) => {
-    // get the input from the "/new" form and create a new entry in the database
-
-    // redirect to "/"
-});
-
-//get random contact(s) added to the database
-
-app.get("/random", (req, res) => {
-    res.render("random");
-})
-
-app.post("/random", (req, res) => {
-
-});
-
-app.listen(3000, () => console.log("AddressBook server started"));
-
 
 // Contact.create({
 //     name: "Hubert Gonzales",
