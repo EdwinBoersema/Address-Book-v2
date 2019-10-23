@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+
+app.listen(3000, () => console.log("AddressBook server started"));
+
 const request = require("request");
 const mongo = require("./mongo");
 
@@ -42,4 +44,3 @@ app.post("/random", (req, res) => {
 
 });
 
-app.listen(3000, () => console.log("AddressBook server started"));

@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/AddressBookv2", {
-   useNewUrlParser: true,
-   useUnifiedTopology: true 
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then(
-    () => {
-      console.log('Database is connected') },
-    err => { console.log('Can not connect to the database'+ err)}
+    console.log("Connected to database")
 );
 
 // MongoDB Schema setup
