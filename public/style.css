@@ -31,10 +31,9 @@ body {
     margin: 1% 1%;
 }
 
-div input, button.btn {
+.searchBar {
     max-width: 40%;
     margin: 1% 1%;
-    align-self: center;
 }
 
 .table {
@@ -54,6 +53,14 @@ tr td {
     padding: 1px;
     margin: 1px;
     border: 2px solid var(--blueHighlight);
+}
+
+#newContactDiv {
+    background: var(--colorBeige);
+    margin: 20px auto;
+    padding: 5px;
+    border: 2px solid var(--darkblue);
+    border-radius: 1rem;
 }
 
 #copyright {

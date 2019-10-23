@@ -1,17 +1,47 @@
 <% include partials/header %>
 
-<div class="container">
-    <div class="row">
-        <form action="/new" method="POST">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="submit" value="Add Contact">
-        </form>
-    </div>
+<div class="container" id="newContactDiv">
+    <form action="/new" method="POST">
+        <div class="form-group row justify-content-center">
+            <div class="col-8">
+                <label>Name</label>
+                <input class="form-control" name="name" type="text" placeholder="name">
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-8">
+                <label>Mobile number</label>
+                <input class="form-control" name="cell" type="tel" placeholder="cellphone">
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-8">
+                <label>E-mail Address</label>
+                <input class="form-control" name="email" type="email" placeholder="email">                
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-8">
+                <label>Street</label>
+                <input class="form-control" name="street" type="text" placeholder="street">                
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-8">
+                <label>Postcode</label>
+                <input class="form-control" name="postcode" type="text" placeholder="postcode">                
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <div class="col-8">
+                <label>City</label>
+                <input class="form-control" name="city" type="text" placeholder="city">                
+            </div>
+        </div>
+        <div class="form-group row justify-content-center">
+            <button type="submit" class="btn btn-outline-secondary">Add</button>
+        </div>
+    </form>
 </div>
 
 <% include partials/footer %>
