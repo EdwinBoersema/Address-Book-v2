@@ -22,21 +22,19 @@ body {
     justify-content: space-between;
 }
 
-.navbar-brand {
+.navbar-brand, .nav-link {
     color: var(--colorWhite);
     border: var(--blueHighlight) 1px solid;
     border-radius: 0.25rem;
     padding-left: 0.3125rem ;
     padding-right: 0.3125rem ;
     margin: 1% 1%;
-    justify-self: flex-start;
 }
 
 div input, button.btn {
     max-width: 40%;
     margin: 1% 1%;
     align-self: center;
-    justify-self: flex-end;
 }
 
 .table {
