@@ -13,7 +13,7 @@ const contactSchema = new mongoose.Schema({
     cell: String,
     email: String,
     street: String,
-    postcode: Number,
+    postcode: String,
     city: String
 });
 

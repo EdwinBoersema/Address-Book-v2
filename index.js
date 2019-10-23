@@ -8,7 +8,7 @@ const request = require("request");
 const mongo = require("./mongo");
 
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //Default Route
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
         if (err) {
             console.log(err);
         } else {
-            res.render("landing", {contacts: allContacts});
+            res.render("landing", { contacts: allContacts });
         }
     });
 });
@@ -30,8 +30,29 @@ app.get("/new", (req, res) => {
 // Create Contact Post
 app.post("/new", (req, res) => {
     // get the input from the "/new" form and create a new entry in the database
-
-    // redirect to "/"
+    const name = req.body.name;
+    const cell = req.body.cell;
+    const email = req.body.email;
+    const street = req.body.street;
+    const postcode = req.body.postcode;
+    const city = req.body.city;
+    const newContact = {
+        name: name,
+        cell: cell,
+        email: email,
+        street: street,
+        postcode: postcode,
+        city: city
+    };
+    // Create new database entry
+    mongo.create(newContact, (err, newlyCreated) => {
+        if (err) {
+            console.log(err);
+        } else {
+            // redirect to "/"
+            res.redirect("/");
+        }
+    });
 });
 
 //get random contact(s) added to the database
