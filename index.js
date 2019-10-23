@@ -30,13 +30,13 @@ app.get("/new", (req, res) => {
 // Create Contact Post
 app.post("/new", (req, res) => {
     // get the input from the "/new" form and create a new entry in the database
-    const name = req.body.name;
-    const cell = req.body.cell;
-    const email = req.body.email;
-    const street = req.body.street;
-    const postcode = req.body.postcode;
-    const city = req.body.city;
-    const newContact = {
+    let name = req.body.name;
+    let cell = req.body.cell;
+    let email = req.body.email;
+    let street = req.body.street;
+    let postcode = req.body.postcode;
+    let city = req.body.city;
+    let newContact = {
         name: name,
         cell: cell,
         email: email,
@@ -61,22 +61,36 @@ app.get("/random", (req, res) => {
 })
 
 app.post("/random", (req, res) => {
-    const count = req.body.count;
-    request('https://randomuser.me/api/?results=1?inc=name,location,email,phone', (error, response, body) => {
+    request('https://randomuser.me/api/?results=10&inc=name,location,email,phone', (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const parsedData = JSON.parse(body);
-            console.log(parsedData);
+            for(let i = 0; i < 10; i++){
+                let data = parsedData.results[i];
+                let randomName = data.name.first + " " + data.name.last;
+                let randomCell = data.phone;
+                let randomEmail = data.email;
+                let randomStreet = data.location.street.number + " " + data.location.street.name;
+                let randomPostcode = data.location.postcode;
+                let randomCity = data.location.city;
+                let randomContact = {
+                    name: randomName,
+                    cell: randomCell,
+                    email: randomEmail,
+                    street: randomStreet,
+                    postcode: randomPostcode,
+                    city: randomCity
+                };
+                mongo.create(randomContact, (err, newlyCreated) => {
+                    if (err) {
+                        console.log(err);
+                    }   else {
+                        console.log(randomContact);
+                    }
+                });
+            }
         } else if (error) {
             console.log(error);
         }
     });
+    res.redirect("/random");
 });
-
-request('https://randomuser.me/api/?results=1?inc=name,location,email,phone', (error, response, body) => {
-        if (!error && response.statusCode == 200) {
-            const parsedData = JSON.parse(body);
-            console.log(parsedData);
-        } else if (error) {
-            console.log(error);
-        }
-    });
