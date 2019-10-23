@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: var(--colorWhite);
+    background-color: var(--colorBeige);;
     color: var(--darkblue);
 }
 
@@ -38,14 +38,16 @@ body {
 }
 
 .table {
-    display: table;
     margin-top: 20px;
 }
 
-tr th {
+.table th {
     background: var(--darkblue);
     color: var(--colorWhite);
-    border: 2px solid var(--blueHighlight);
+}
+
+.table th:first-of-type {
+    border-top-left-radius: 0.5rem;
 }
 
 tr td {
@@ -53,7 +55,10 @@ tr td {
     color: var(--darkblue);
     padding: 1px;
     margin: 1px;
-    border: 2px solid var(--blueHighlight);
+}
+
+tr td:not(:last-of-type), tr th:not(:last-of-type) {
+    border-right: 1px solid #dee2e6;
 }
 
 #newContactDiv {
