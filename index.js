@@ -61,9 +61,11 @@ app.get("/random", (req, res) => {
 })
 
 app.post("/random", (req, res) => {
+    // Call the API for 10 random Contacts
     request('https://randomuser.me/api/?results=10&inc=name,location,email,phone', (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const parsedData = JSON.parse(body);
+            // Loop through the contacts and assign the data to the corresponding variables
             for(let i = 0; i < 10; i++){
                 let data = parsedData.results[i];
                 let randomName = data.name.first + " " + data.name.last;
@@ -72,6 +74,7 @@ app.post("/random", (req, res) => {
                 let randomStreet = data.location.street.number + " " + data.location.street.name;
                 let randomPostcode = data.location.postcode;
                 let randomCity = data.location.city;
+                // Put the variables into 1 array
                 let randomContact = {
                     name: randomName,
                     cell: randomCell,
@@ -80,6 +83,7 @@ app.post("/random", (req, res) => {
                     postcode: randomPostcode,
                     city: randomCity
                 };
+                // Create a new database entry with the array
                 mongo.create(randomContact, (err, newlyCreated) => {
                     if (err) {
                         console.log(err);
@@ -92,5 +96,6 @@ app.post("/random", (req, res) => {
             console.log(error);
         }
     });
+    // redirect to "/random" after creating the new entries
     res.redirect("/random");
 });
