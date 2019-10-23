@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 mongoose.connect("mongodb://localhost:27017/AddressBookv2", {
    useNewUrlParser: true,
    useUnifiedTopology: true 
@@ -20,7 +19,9 @@ const contactSchema = new mongoose.Schema({
     city: String
 });
 
-const Contact = mongoose.model("Contact", contactSchema);
+// Exporting the model for use in index.js
+module.exports = mongoose.model("Contact", contactSchema);
+
 
 // // log all contacts
 // Contact.find({}, (err, contacts) => {
