@@ -47,7 +47,11 @@ body {
 }
 
 .table th:first-of-type {
-    border-top-left-radius: 0.5rem;
+    border-top-left-radius: 1rem;
+}
+
+.table th:last-of-type {
+    border-top-right-radius: 1rem;
 }
 
 tr td {
@@ -59,6 +63,14 @@ tr td {
 
 tr td:not(:last-of-type), tr th:not(:last-of-type) {
     border-right: 1px solid #dee2e6;
+}
+
+tr:last-of-type td:first-child{
+    border-bottom-left-radius: 1rem;
+}
+
+tr:last-of-type td:last-child {
+    border-bottom-right-radius: 1rem;
 }
 
 #newContactDiv {
