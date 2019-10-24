@@ -32,14 +32,21 @@ app.get("/show/:id", (req, res) => {
             res.redirect("/");
         } else {
             console.log(foundContact.name);
-            res.render("show", { contact: foundContact});
+            res.render("show", { contact: foundContact });
         }
     })
 });
 
 // EDIT route
 app.get("/show/:id/edit", (req, res) => {
-    res.render("edit");
+    mongo.findById(req.params.id, (err, foundContact) => {
+        if (err) {
+            console.log(err);
+            res.redirect("/");
+        } else {
+            res.render("edit", { contact: foundContact});
+        }
+    });
 });
 
 // Render new.ejs on "/new"
@@ -86,7 +93,7 @@ app.post("/random", (req, res) => {
         if (!error && response.statusCode == 200) {
             const parsedData = JSON.parse(body);
             // Loop through the contacts and assign the data to the corresponding variables
-            for(let i = 0; i < 10; i++){
+            for (let i = 0; i < 10; i++) {
                 let data = parsedData.results[i];
                 let randomName = data.name.first + " " + data.name.last;
                 let randomCell = data.phone;
@@ -107,7 +114,7 @@ app.post("/random", (req, res) => {
                 mongo.create(randomContact, (err, newlyCreated) => {
                     if (err) {
                         console.log(err);
-                    }   else {
+                    } else {
                         console.log(randomContact);
                     }
                 });

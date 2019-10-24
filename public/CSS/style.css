@@ -50,10 +50,6 @@ tr:hover .idLink {
     display: table-cell;
 }
 
-.table {
-    margin-top: 20px;
-}
-
 .table th {
     background: var(--darkblue);
     color: var(--colorWhite);
@@ -90,7 +86,7 @@ tr:last-of-type td:last-child {
     border-bottom-right-radius: 1rem;
 }
 
-#showDiv {
+.mainBody {
     margin-top: 20px;
 }
 
