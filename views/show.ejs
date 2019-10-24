@@ -21,6 +21,9 @@
             <%= contact.city %>
         </li>
     </ul>
+    <form action="show/<%=contact._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">DELETE</button>
+    </form>
 </div>
 
 

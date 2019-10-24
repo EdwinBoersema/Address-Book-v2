@@ -65,7 +65,9 @@ app.put("/show/:id/", (req, res) => {
 })
 
 // DELETE ROUTE
-
+app.delete("/show/:id", (req, res) => {
+    res.send("You have reached the delete ROUTE!");
+});
 
 // Render new.ejs on "/new"
 app.get("/new", (req, res) => {
