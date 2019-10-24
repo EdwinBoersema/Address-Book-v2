@@ -24,11 +24,11 @@ app.get("/", (req, res) => {
     });
 });
 
-
 // SHOW route
-app.get("/:id", (req, res) => {
+app.get("/show/:id", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
+            console.log(err);
             res.redirect("/");
         } else {
             console.log(foundContact.name);
@@ -38,7 +38,7 @@ app.get("/:id", (req, res) => {
 });
 
 // EDIT route
-app.get("/:id/edit", (req, res) => {
+app.get("/show/:id/edit", (req, res) => {
     res.render("edit");
 });
 
