@@ -18,11 +18,10 @@
               </thead>
               <tbody>
                 <% contacts.forEach((contacts) => { %>
-                    <tr class="addressRow">
+                    <tr data-href="/show/<%=contacts._id%>" class="addressRow">
                         <td> <%= contacts.name %></td>
                         <td> <%= contacts.cell %></td>
                         <td> <%= contacts.email %></td>
-                        <td class="idLink"><a href="/show/<%= contacts._id %>">Edit</a></td>
                   </tr>
                 <% }) %>
               </tbody>
