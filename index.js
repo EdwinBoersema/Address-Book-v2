@@ -76,7 +76,7 @@ app.put("/index/show/:id/", (req, res) => {
             console.log(err);
             res.redirect("/");
         } else {
-            res.redirect("/show/" + req.params.id);
+            res.redirect("/index/show/" + req.params.id);
             console.log(req.body.contact);
         }
     });
@@ -90,7 +90,7 @@ app.delete("/index/show/:id", (req, res) => {
             console.log(err);
             res.redirect("/");
         } else {
-            res.redirect("/");
+            res.redirect("/index");
         }
     });
     // redirect to "/"
@@ -124,7 +124,7 @@ app.post("/new", (req, res) => {
             console.log(err);
         } else {
             // redirect to "/"
-            res.redirect("/");
+            res.redirect("/index");
         }
     });
 });
