@@ -37,7 +37,7 @@ app.get("/index", (req, res) => {
             console.log(err);
             res.redirect("/");
         } else {
-            res.render("/index", { contacts: allContacts});
+            res.render("index", { contacts: allContacts});
         }
     });
 });
@@ -45,7 +45,7 @@ app.get("/index", (req, res) => {
 
 
 // SHOW ROUTE
-app.get("/show/:id", (req, res) => {
+app.get("/index/show/:id", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
             console.log(err);
@@ -58,7 +58,7 @@ app.get("/show/:id", (req, res) => {
 });
 
 // EDIT ROUTE
-app.get("/show/:id/edit", (req, res) => {
+app.get("/index/show/:id/edit", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
             console.log(err); 
@@ -70,7 +70,7 @@ app.get("/show/:id/edit", (req, res) => {
 });
 
 // UPDATE ROUTE
-app.put("/show/:id/", (req, res) => {
+app.put("/index/show/:id/", (req, res) => {
     mongo.findByIdAndUpdate(req.params.id, req.body.contact, (err, updatedContact) => {
         if (err) {
             console.log(err);
@@ -83,7 +83,7 @@ app.put("/show/:id/", (req, res) => {
 })
 
 // DELETE ROUTE
-app.delete("/show/:id", (req, res) => {
+app.delete("/index/show/:id", (req, res) => {
     // destroy blog
     mongo.findByIdAndRemove(req.params.id, (err) => {
         if (err) {
