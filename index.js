@@ -25,11 +25,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:id", (req, res) => {
-    res.send("success!");
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
             res.redirect("/");
         } else {
+            console.log(foundContact.name);
             res.render("show", { contact: foundContact});
         }
     })
