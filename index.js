@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 
 // start the server at port 3000
 app.listen(3000, () => console.log("AddressBook server started on port 3000"));
@@ -12,6 +13,7 @@ const mongo = require("./mongo");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 //Default Route
 app.get("/", (req, res) => {
@@ -51,7 +53,15 @@ app.get("/show/:id/edit", (req, res) => {
 
 // Update route
 app.put("/show/:id/", (req, res) => {
-    res.send("Update route!");
+    mongo.findByIdAndUpdate(req.params.id, req.body.contact, (err, updatedContact) => {
+        if (err) {
+            console.log(err);
+            res.redirect("/");
+        } else {
+            res.redirect("/show/" + req.params.id);
+            console.log(req.body.contact);
+        }
+    });
 })
 
 // Render new.ejs on "/new"
