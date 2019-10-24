@@ -41,13 +41,18 @@ app.get("/show/:id", (req, res) => {
 app.get("/show/:id/edit", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
-            console.log(err);
+            console.log(err); 
             res.redirect("/");
         } else {
             res.render("edit", { contact: foundContact});
         }
     });
 });
+
+// Update route
+app.put("/show/:id/", (req, res) => {
+    res.send("Update route!");
+})
 
 // Render new.ejs on "/new"
 app.get("/new", (req, res) => {

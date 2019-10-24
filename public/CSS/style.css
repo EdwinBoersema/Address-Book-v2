@@ -105,3 +105,7 @@ tr:last-of-type td:last-child {
 #copyright {
     font-size: 0.5em;
 }
+
+#editTitle {
+    font-size: 2em;
+}
