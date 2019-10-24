@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/AddressBookv2", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 }).then(
     console.log("Connected to database")
 );

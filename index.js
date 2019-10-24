@@ -66,7 +66,16 @@ app.put("/show/:id/", (req, res) => {
 
 // DELETE ROUTE
 app.delete("/show/:id", (req, res) => {
-    res.send("You have reached the delete ROUTE!");
+    // destroy blog
+    mongo.findByIdAndRemove(req.params.id, (err) => {
+        if (err) {
+            console.log(err);
+            res.redirect("/");
+        } else {
+            res.redirect("/");
+        }
+    });
+    // redirect to "/"
 });
 
 // Render new.ejs on "/new"
