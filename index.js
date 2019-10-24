@@ -1,8 +1,10 @@
+// require dependencies
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
-app.listen(3000, () => console.log("AddressBook server started"));
+// start the server at port 3000
+app.listen(3000, () => console.log("AddressBook server started on port 3000"));
 
 const request = require("request");
 const mongo = require("./mongo");
@@ -20,6 +22,17 @@ app.get("/", (req, res) => {
             res.render("landing", { contacts: allContacts });
         }
     });
+});
+
+app.get("/:id", (req, res) => {
+    res.send("success!");
+    mongo.findById(req.params.id, (err, foundContact) => {
+        if (err) {
+            res.redirect("/");
+        } else {
+            res.render("show", { contact: foundContact});
+        }
+    })
 });
 
 // Render new.ejs on "/new"
