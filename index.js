@@ -24,6 +24,8 @@ app.get("/", (req, res) => {
     });
 });
 
+
+// SHOW route
 app.get("/:id", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
@@ -33,6 +35,11 @@ app.get("/:id", (req, res) => {
             res.render("show", { contact: foundContact});
         }
     })
+});
+
+// EDIT route
+app.get("/:id/edit", (req, res) => {
+    res.render("edit");
 });
 
 // Render new.ejs on "/new"

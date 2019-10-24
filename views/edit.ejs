@@ -1,0 +1,50 @@
+<% include partials/header %>
+
+<div class="container">
+    <h2 class="justify-self-center">Edit the Contact</h2>
+    <div class="container">
+        <form action="/" method="POST">
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label>Name</label>
+                    <input class="form-control" name="name" type="text" placeholder="name">
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label>Mobile number</label>
+                    <input class="form-control" name="cell" type="tel" placeholder="cellphone">
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label>E-mail Address</label>
+                    <input class="form-control" name="email" type="email" placeholder="email">                
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label>Street</label>
+                    <input class="form-control" name="street" type="text" placeholder="street">                
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label>Postcode</label>
+                    <input class="form-control" name="postcode" type="text" placeholder="postcode">                
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <div class="col-8">
+                    <label>City</label>
+                    <input class="form-control" name="city" type="text" placeholder="city">                
+                </div>
+            </div>
+            <div class="form-group row justify-content-center">
+                <button type="submit" class="btn btn-outline-primary">Edit Contact</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% include partials/footer %>

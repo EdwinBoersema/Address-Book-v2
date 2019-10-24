@@ -43,12 +43,11 @@ body {
 }
 
 .idLink {
-    display: none;
+    display: table-cell;
 }
 
 tr:hover .idLink {
     display: table-cell;
-    float: left;
 }
 
 .table {
