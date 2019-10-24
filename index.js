@@ -17,14 +17,32 @@ app.use(methodOverride("_method"));
 
 // DEFAULT ROUTE
 app.get("/", (req, res) => {
+    res.render("landing");
+});
+
+// app.get("/", (req, res) => {
+//     mongo.find({}, (err, allContacts) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             res.render("landing", { contacts: allContacts });
+//         }
+//     });
+// });
+
+// INDEX ROUTE
+app.get("/index", (req, res) => {
     mongo.find({}, (err, allContacts) => {
         if (err) {
             console.log(err);
+            res.redirect("/");
         } else {
-            res.render("landing", { contacts: allContacts });
+            res.render("/index", { contacts: allContacts});
         }
     });
 });
+// SEARCH ROUTE
+
 
 // SHOW ROUTE
 app.get("/show/:id", (req, res) => {

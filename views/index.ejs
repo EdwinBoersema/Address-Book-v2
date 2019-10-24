@@ -1,0 +1,33 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <input type="text" class="form-control searchBar" placeholder="...">
+        <button type="button" class="btn btn-outline-primary searchBar">Search</button>
+    </div>
+</div>
+
+<div class="container mainBody">
+    <table class="table table-responsive-md">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Tel. Number</th>
+                <th scope="col">E-mail Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contacts.forEach((contacts) => { %>
+            <tr data-href="/show/<%=contacts._id%>" class="addressRow">
+                <td> <%= contacts.name %></td>
+                <td> <%= contacts.cell %></td>
+                <td> <%= contacts.email %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script src="/javascript/script.js"></script>
+
+<% include partials/footer %>
