@@ -1,11 +1,20 @@
 <% include partials/header %>
 <% include partials/navbar %>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <input type="text" class="form-control searchBar" placeholder="...">
-        <button type="button" class="btn btn-outline-primary searchBar">Search</button>
-        <a href="/new" class="nav-link">Add new Contact</a>
+<div class="container mainBody">
+    <div class="row justify-content-between">
+        <div class="col-3">
+            <a href="/new">
+                <button class="btn btn-outline-primary">Add new Contact</button>
+            </a>
+        </div>
+        <span class="p-2 flex-grow-1"></span>
+        <div class="col4">
+            <input type="text" class="form-control" placeholder="...">
+        </div>
+        <div class="col-2 justify-content-end">
+            <button type="button" class="btn btn-outline-primary">Search</button>
+        </div>
     </div>
 </div>
 
