@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
-//Default Route
+// DEFAULT ROUTE
 app.get("/", (req, res) => {
     mongo.find({}, (err, allContacts) => {
         if (err) {
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     });
 });
 
-// SHOW route
+// SHOW ROUTE
 app.get("/show/:id", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
@@ -39,7 +39,7 @@ app.get("/show/:id", (req, res) => {
     })
 });
 
-// EDIT route
+// EDIT ROUTE
 app.get("/show/:id/edit", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
@@ -51,7 +51,7 @@ app.get("/show/:id/edit", (req, res) => {
     });
 });
 
-// Update route
+// UPDATE ROUTE
 app.put("/show/:id/", (req, res) => {
     mongo.findByIdAndUpdate(req.params.id, req.body.contact, (err, updatedContact) => {
         if (err) {
@@ -63,6 +63,9 @@ app.put("/show/:id/", (req, res) => {
         }
     });
 })
+
+// DELETE ROUTE
+
 
 // Render new.ejs on "/new"
 app.get("/new", (req, res) => {
