@@ -7,16 +7,13 @@
     </div>
 </div>
 
-    <div class="container-fluid">
+    <div class="container">
             <table class="table table-responsive-md">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">Tel. Number</th>
                   <th scope="col" class="d-none d-md-table-cell">E-mail Address</th>
-                  <th scope="col">Address</th>
-                  <th scope="col" class="d-none d-md-table-cell">Zip Code</th>
-                  <th scope="col">City</th>
                 </tr>
               </thead>
               <tbody>
@@ -24,10 +21,7 @@
                     <tr class="addressRow">
                         <td> <%= contacts.name %></td>
                         <td> <%= contacts.cell %></td>
-                        <td class="d-none d-md-table-cell"> <%= contacts.email %></td>
-                        <td> <%= contacts.street %></td>
-                        <td class="d-none d-md-table-cell"> <%= contacts.postcode %></td>
-                        <td> <%= contacts.city %></td>
+                        <td> <%= contacts.email %></td>
                         <td class="idLink"><a href="/<%= contacts._id %>">Edit</a></td>
                   </tr>
                 <% }) %>
