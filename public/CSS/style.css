@@ -5,6 +5,10 @@
     --colorBeige: #F1F1E6;
 }
 
+h1 {
+    text-align: center;
+}
+
 body {
     background-color: var(--colorBeige);;
     color: var(--darkblue);
