@@ -102,6 +102,10 @@ tr:last-of-type td:last-child {
     border-radius: 1rem;
 }
 
+#newButton {
+    background-color: var(--colorWhite);
+}
+
 #copyright {
     font-size: 0.5em;
 }
