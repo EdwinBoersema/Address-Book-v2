@@ -23,13 +23,19 @@
 </div>
 
 <div class="container mainBody">
+    <% let resultsMessage = ""; %>
+    <% if (contacts.length > 1) { %>
+        <% resultsMessage = 'results'; %>
+    <% } else {%>
+        <% resultsMessage = 'results'; %>
+        <% } %>
+    <p><%= contacts.length %> <%= resultsMessage%></p>
     <% let numPages = Math.ceil(contacts.length/25); %>
     <% for (let i = 1; i <= numPages; i++) { %>
-        <button  id="page<%=i%>" class="btn btn-primary">
+        <button id="page<%=i%>" class="btn btn-primary pageButton">
                 <%=i%>
         </button>
     <% } %>
-    <p><%= contacts.length %></p>
 </div>
 
 <div class="container mainBody">
@@ -38,7 +44,7 @@
 
 <% for (let i = 0; i < numPages; i++) { %>
 
-    <div class="mainBody">
+    <div class="mainBody resultsPage">
         <table class="table table-responsive-sm">
             <thead>
                 <tr>
