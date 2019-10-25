@@ -42,7 +42,26 @@ app.get("/index", (req, res) => {
     });
 });
 // SEARCH ROUTE
-
+app.get("/index/search", (req, res) => {
+    let search = req.query.search;
+    console.log(search);
+    mongo.find({
+        $or: [
+        {name: {$regex: '.*' + search + '.*'}},
+        {cell: {$regex: '.*' + search + '.*'}},
+        {email: {$regex: '.*' + search + '.*'}},
+        {street: {$regex: '.*' + search + '.*'}},
+        {postcode: {$regex: '.*' + search + '.*'}},
+        {city: {$regex: '.*' + search + '.*'}}
+    ]    }, (err, searchResults) => {
+        if (err) {
+            console.log(err);
+            res.redirect("/");
+        } else {
+            res.render("index", {contacts: searchResults});
+        }
+    });
+});
 
 // SHOW ROUTE
 app.get("/index/show/:id", (req, res) => {
