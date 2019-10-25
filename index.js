@@ -29,7 +29,7 @@ app.get("/index", (req, res) => {
         } else {
             res.render("index", { contacts: allContacts });
         }
-    }).sort({name:1}).limit(25);
+    }).sort({name:1});
 });
 
 // SEARCH ROUTE
@@ -52,7 +52,7 @@ app.get("/index/search", (req, res) => {
         } else {
             res.render("index", { contacts: searchResults });
         }
-    }).sort({name:1}).limit(25);
+    }).sort({name:1});
 });
 
 // SHOW ROUTE
