@@ -22,31 +22,49 @@
     </div>
 </div>
 
+<div class="container mainBody">
+    <% let numPages = Math.ceil(contacts.length/25); %>
+    <% for (let i = 1; i <= numPages; i++) { %>
+        <button  id="page<%=i%>" class="btn btn-primary">
+                <%=i%>
+        </button>
+    <% } %>
+    <p><%= contacts.length %></p>
+</div>
 
 <div class="container mainBody">
-    <table class="table table-responsive-sm">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Tel. Number</th>
-                <th scope="col">E-mail Address</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% contacts.forEach((contacts) => { %>
-            <tr data-href="/index/show/<%=contacts._id%>" class="addressRow">
-                <td> <%= contacts.name %></td>
-                <td> <%= contacts.cell %></td>
-                <td> <%= contacts.email %></td>
-            </tr>
-            <% }) %>
-        </tbody>
-    </table>
+    <% let currentContact = 0; %>
+    <% let maxContact = 25; %>
+
+<% for (let i = 0; i < numPages; i++) { %>
+
+    <div class="mainBody">
+        <table class="table table-responsive-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Tel. Number</th>
+                    <th scope="col">E-mail Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = currentContact; i < maxContact && i < contacts.length; i++) { %>
+                <tr data-href="/index/show/<%=contacts[i]._id%>" class="addressRow">
+                    <td> <%= contacts[i].name %></td>
+                    <td> <%= contacts[i].cell %></td>
+                    <td> <%= contacts[i].email %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <% currentContact += 25; %>
+    <% maxContact += 25; %>
+
+    <% } %>
 </div>
 
-<div>
-    <img src="" alt="">
-</div>
 
 <script src="/javascript/script.js"></script>
 
