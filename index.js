@@ -20,16 +20,6 @@ app.get("/", (req, res) => {
     res.render("landing");
 });
 
-// app.get("/", (req, res) => {
-//     mongo.find({}, (err, allContacts) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             res.render("landing", { contacts: allContacts });
-//         }
-//     });
-// });
-
 // INDEX ROUTE
 app.get("/index", (req, res) => {
     mongo.find({}, (err, allContacts) => {
@@ -37,30 +27,32 @@ app.get("/index", (req, res) => {
             console.log(err);
             res.redirect("/");
         } else {
-            res.render("index", { contacts: allContacts});
+            res.render("index", { contacts: allContacts });
         }
-    });
+    }).sort({name:1}).limit(25);
 });
+
 // SEARCH ROUTE
 app.get("/index/search", (req, res) => {
     let search = req.query.search;
     console.log(search);
     mongo.find({
         $or: [
-        {name: {$regex: '.*' + search + '.*'}},
-        {cell: {$regex: '.*' + search + '.*'}},
-        {email: {$regex: '.*' + search + '.*'}},
-        {street: {$regex: '.*' + search + '.*'}},
-        {postcode: {$regex: '.*' + search + '.*'}},
-        {city: {$regex: '.*' + search + '.*'}}
-    ]    }, (err, searchResults) => {
+            { name: { $regex: '.*' + search + '.*' } },
+            { cell: { $regex: '.*' + search + '.*' } },
+            { email: { $regex: '.*' + search + '.*' } },
+            { street: { $regex: '.*' + search + '.*' } },
+            { postcode: { $regex: '.*' + search + '.*' } },
+            { city: { $regex: '.*' + search + '.*' } }
+        ]
+    }, (err, searchResults) => {
         if (err) {
             console.log(err);
             res.redirect("/");
         } else {
-            res.render("index", {contacts: searchResults});
+            res.render("index", { contacts: searchResults });
         }
-    });
+    }).sort({name:1}).limit(25);
 });
 
 // SHOW ROUTE
@@ -80,10 +72,10 @@ app.get("/index/show/:id", (req, res) => {
 app.get("/index/show/:id/edit", (req, res) => {
     mongo.findById(req.params.id, (err, foundContact) => {
         if (err) {
-            console.log(err); 
+            console.log(err);
             res.redirect("/");
         } else {
-            res.render("edit", { contact: foundContact});
+            res.render("edit", { contact: foundContact });
         }
     });
 });
