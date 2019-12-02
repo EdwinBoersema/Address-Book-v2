@@ -10,7 +10,7 @@ Features:
   
 ![ContactPage](https://user-images.githubusercontent.com/56028164/69961750-cf4de180-150c-11ea-8c80-fcc9aba08ae4.PNG)
 
-    With search functionality:
+   - Including search functionality:
     
 ![Search](https://user-images.githubusercontent.com/56028164/69961777-dbd23a00-150c-11ea-9774-e146ee4406b0.PNG)
 
