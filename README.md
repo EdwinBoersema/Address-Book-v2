@@ -12,11 +12,11 @@ Features:
 
    - Including search functionality:
     
-![Search](https://user-images.githubusercontent.com/56028164/69961777-dbd23a00-150c-11ea-9774-e146ee4406b0.PNG)
+![Search](https://user-images.githubusercontent.com/56028164/69962356-26a08180-150e-11ea-99fc-b1d3ffae7271.PNG)
 
   - Showing Induvidual Contacts for more information: 
   
-![ShowContactPage](https://user-images.githubusercontent.com/56028164/69962177-babe1900-150d-11ea-8a72-8955f9301a18.PNG)
+![ShowContactPage](https://user-images.githubusercontent.com/56028164/69962360-286a4500-150e-11ea-85a0-aa1b3b841a81.PNG)
 
   - Adding Contacts:
   
