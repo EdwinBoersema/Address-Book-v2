@@ -16,7 +16,7 @@ Features:
 
   - Showing Induvidual Contacts for more information: 
   
-![ShowContactPage](https://user-images.githubusercontent.com/56028164/69961780-de349400-150c-11ea-8a0d-e42ec6a1d01a.PNG)
+![ShowContactPage](https://user-images.githubusercontent.com/56028164/69962177-babe1900-150d-11ea-8a72-8955f9301a18.PNG)
 
   - Adding Contacts:
   
